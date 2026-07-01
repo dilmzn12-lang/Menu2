@@ -20,7 +20,7 @@ export default function RatingsReviews({ lang }: RatingsReviewsProps) {
   ];
 
   return (
-    <section id="reviews-section" className="py-12 px-6 rounded-3xl mt-12 bg-white/45 backdrop-blur-md border border-white/60 shadow-xl">
+    <section id="reviews-section" className="py-12 px-6 rounded-3xl mt-12 bg-white/45 backdrop-blur-md border border-white/60 shadow-xl overflow-hidden">
       {/* Section Title */}
       <div className="text-center mb-8">
         <span className="font-serif italic text-rose-500/80 text-lg block mb-1">

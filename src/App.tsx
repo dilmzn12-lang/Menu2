@@ -235,7 +235,7 @@ export default function App() {
               
               <div className="text-center">
                 <div className="text-[10px] font-mono tracking-wider text-amber-200/90 font-extrabold uppercase">
-                  Bêخێربێن بۆ بلاک کۆفی
+                  بەخێربێن بۆ بلاک کۆفی
                 </div>
                 <div className="text-[9px] text-slate-300 font-medium mt-0.5">
                   Kurdistan Special Edition • ٢٠٢٦
@@ -344,7 +344,7 @@ export default function App() {
 
   // MAIN DIGITAL MENU SHOWCASE DASHBOARD (Vibrant, bright pastel-mesh theme!)
   return (
-    <div className={`min-h-screen mesh-bg relative pb-16 font-sans text-slate-800 antialiased selection:bg-rose-100 ${
+    <div className={`min-h-screen w-full overflow-x-hidden mesh-bg relative pb-16 font-sans text-slate-800 antialiased selection:bg-rose-100 ${
       lang === 'ar' || lang === 'ku' ? 'font-arabic' : 'font-sans'
     }`}>
       {/* SCROLL PROGRESS BAR AT VERY TOP */}

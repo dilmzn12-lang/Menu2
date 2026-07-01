@@ -1,0 +1,6 @@
+{
+  "name": "Specialty Coffee Digital Menu",
+  "description": "A vibrant, interactive 3D digital menu showcase for high-end specialty cafés, supporting English, Arabic, and Kurdish.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

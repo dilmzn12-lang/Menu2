@@ -21,6 +21,9 @@ class CoffeeShopAmbience {
       if (!AudioCtxClass) return;
 
       this.ctx = new AudioCtxClass();
+      if (this.ctx.state === 'suspended') {
+        this.ctx.resume().catch(e => console.warn('Failed to resume audio context:', e));
+      }
       this.masterGain = this.ctx.createGain();
       // Keep it soft by default so it stays in the background
       this.masterGain.gain.setValueAtTime(0.2, this.ctx.currentTime);

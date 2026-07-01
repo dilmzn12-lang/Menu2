@@ -33,6 +33,7 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState<boolean>(false);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [activeItemId, setActiveItemId] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   
   // Ref for audio/ambient context if needed
   const timerRef = useRef<number | null>(null);
@@ -47,6 +48,7 @@ export default function App() {
 
   // Clean up sound on unmount
   useEffect(() => {
+    setIsMounted(true);
     return () => {
       shopAmbience.stop();
     };
@@ -135,6 +137,15 @@ export default function App() {
   };
 
   const isRtl = lang === 'ar' || lang === 'ku';
+
+  if (!isMounted) {
+    return (
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 text-slate-100 font-sans antialiased">
+        <div className="w-12 h-12 rounded-full border-4 border-amber-500/20 border-t-amber-500 animate-spin" />
+        <span className="mt-4 text-xs font-mono text-slate-500 tracking-wider uppercase">Loading experience...</span>
+      </div>
+    );
+  }
 
   // INTRO CINEMATIC SCREEN
   if (screen === 'intro') {
@@ -546,7 +557,7 @@ export default function App() {
                           <Volumetric3DAsset item={item} interactive={true} />
                           
                           {/* Sub-hint overlay */}
-                          <div className="absolute bottom-0 bg-slate-800/5 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-[9px] font-mono text-slate-500 pointer-events-none">
+                          <div className="absolute bottom-0 bg-slate-800/5 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-[9px] font-mono text-slate-500 pointer-events-none">
                             {TRANSLATIONS.drag_to_rotate[lang]}
                           </div>
                         </div>
